@@ -38,7 +38,6 @@ document.querySelector('#app').innerHTML = `
 <main class="shell">
   <header class="topbar">
     <div>
-      <p class="eyebrow">Classic Engine + Presentation Overlay</p>
       <h1>Pacman Presents Me</h1>
     </div>
     <div class="status">Punti sbloccati: <span id="count">0</span>/5</div>
@@ -48,10 +47,7 @@ document.querySelector('#app').innerHTML = `
     <div class="game-frame-wrap">
       <iframe id="classic-frame" src="classic/index.html" title="Classic Pacman"></iframe>
     </div>
-    <aside class="side">
-      <h2>Presentazione</h2>
-      <ol id="points"></ol>
-    </aside>
+
   </section>
 </main>
 
@@ -76,8 +72,6 @@ document.querySelector('#app').innerHTML = `
 </div>
 `
 
-const countEl = document.querySelector('#count')
-const pointsEl = document.querySelector('#points')
 const frameEl = document.querySelector('#classic-frame')
 const overlayEl = document.querySelector('#overlay')
 const finalOverlayEl = document.querySelector('#final-overlay')
@@ -85,18 +79,6 @@ const titleEl = document.querySelector('#modal-title')
 const bodyEl = document.querySelector('#modal-body')
 const closeEl = document.querySelector('#modal-close')
 const finalCloseEl = document.querySelector('#final-close')
-
-const renderPoints = () => {
-  pointsEl.innerHTML = ''
-  presentationPoints.forEach((point, index) => {
-    const li = document.createElement('li')
-    const unlocked = state.unlocked.includes(index)
-    li.className = unlocked ? 'done' : 'todo'
-    li.textContent = unlocked ? `${index + 1}. ${point.title}` : `${index + 1}. Punto bloccato`
-    pointsEl.append(li)
-  })
-  countEl.textContent = String(state.unlocked.length)
-}
 
 const pauseClassicGame = () => {
   try {
@@ -189,7 +171,6 @@ const resetPresentation = () => {
   state.isTyping = false
   overlayEl.classList.add('hidden')
   finalOverlayEl.classList.add('hidden')
-  renderPoints()
 
   try {
     const gameWindow = frameEl.contentWindow
@@ -210,7 +191,6 @@ const enqueueUnlock = () => {
   if (pointIndex >= presentationPoints.length) return
   state.unlocked.push(pointIndex)
   state.queue.push(pointIndex)
-  renderPoints()
   showNextModal()
 }
 
@@ -273,5 +253,3 @@ closeEl.addEventListener('click', () => {
 })
 
 finalCloseEl.addEventListener('click', resetPresentation)
-
-renderPoints()

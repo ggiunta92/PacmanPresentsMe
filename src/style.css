@@ -63,17 +63,9 @@ h1 {
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(680px, 3fr) minmax(240px, 1fr);
+  grid-template-columns: 1fr;
   gap: 0.8rem;
   align-items: start;
-}
-
-.game-frame-wrap,
-.side {
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(17, 42, 72, 0.95), rgba(13, 32, 56, 0.96));
-  border: 2px solid var(--panel-border);
-  box-shadow: 0 16px 32px rgba(2, 8, 15, 0.45);
 }
 
 .game-frame-wrap {
@@ -88,44 +80,12 @@ h1 {
   background: #000;
 }
 
-.side {
-  padding: 0.85rem;
-}
-
 h2 {
   margin: 0;
   color: #fff;
   font-size: 1.05rem;
 }
 
-ol {
-  margin: 0.85rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.45rem;
-}
-
-li {
-  padding: 0.35rem 0.5rem;
-  border-radius: 8px;
-}
-
-li.todo {
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-li.done {
-  color: #ddffe8;
-  background: rgba(120, 229, 167, 0.18);
-}
-
-.hint {
-  margin: 0.9rem 0 0;
-  font-size: 0.86rem;
-  color: var(--muted);
-  line-height: 1.45;
-}
 
 .overlay {
   position: fixed;
