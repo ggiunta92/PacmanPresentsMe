@@ -30,9 +30,11 @@ html, body {
 }
 html  { 
 	background-color: #000;
+	overflow: hidden;
 }
 body { 
 	position: relative;
+	overflow: hidden;
 }
 
 
