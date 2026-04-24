@@ -7,19 +7,19 @@ const presentationPoints = [
   },
   {
     title: 'Main Projects',
-    body: 'Nel mio percorso in Reply ho avuto modo di lavorare su tanti contesti e clienti diversi, da grandi gruppi industriali a realtà molto strutturate come CNH, Azimut, Datalogic, iGuzzini, Maire Technimont, Qubica, Lucart, Fedrigoni e molti altri.\nNegli ultimi anni mi sono concentrato soprattutto su iniziative che mi hanno permesso di toccare tutti i principali moduli CRM e Contact Center.\nHo portato soluzioni sia low-code con Power Platform, sia pro-code su architetture Azure, sempre integrate nei processi aziendali.',
+    body: 'Nel mio percorso in Reply ho avuto modo di lavorare su tanti contesti e clienti diversi, da grandi gruppi industriali a realtà molto strutturate come CNH, Azimut, Datalogic, iGuzzini, Maire Technimont, Qubica, Lucart, Fedrigoni e molti altri.\nNegli ultimi anni mi sono concentrato soprattutto su iniziative che mi hanno permesso di toccare tutti i principali moduli CRM e Digital Contact Center.\nHo portato soluzioni sia low-code con Power Platform, sia pro-code su architetture Azure, sempre integrate nei processi aziendali.',
   },
   {
     title: 'AI Addicted',
-    body: 'Con la spinta di Lorenzo, abbiamo iniziato presto a sperimentare soluzioni AI, dai primi bot RAG per risposte contestuali fino a soluzioni agentiche avanzate con Copilot Studio, Code Interpreter, IVR e architetture AI complesse rilasciate in produzione, con esempi concreti come il processo PIN per iGuzzini.\nQuesta esperienza mi ha portato ad avviare il percorso di B6 insieme a Giovanni Campolo.\nInoltre, ha consolidato una forte attitudine a portare AI e nuove tecnologie dentro i processi dei clienti.',
+    body: 'Con la spinta di Lorenzo abbiamo iniziato presto a sperimentare soluzioni AI: dai primi bot RAG per risposte contestuali fino a soluzioni agentiche avanzate (Copilot Studio, Code Interpreter, IVR) e architetture AI complesse rilasciate in produzione.\nEsempi concreti includono il processo PIN per iGuzzini.\nQuesta esperienza mi ha portato ad avviare il percorso B6 insieme a Giovanni Campolo e ha consolidato una forte attitudine a portare AI e innovazione nei processi dei clienti.',
   },
   {
     title: 'Crescita del Team (People first)',
-    body: 'Credo molto nella crescita delle persone, non solo dal punto di vista tecnico, ma anche nella costruzione di legami reali e fiducia reciproca all\'interno del team.\nCerco di favorire una condivisione continua delle conoscenze, insieme a un ambiente dove ci si possa confrontare in modo sincero, aperto e costruttivo.\nPenso che questo sia l\'elemento chiave per costruire team solidi, motivare i colleghi più giovani e creare le condizioni migliori per una crescita professionale sana e duratura.\nNel mio ruolo provo ad essere un esempio e una guida, portando qualità nel lavoro e, quando possibile, anche nel modo di stare insieme ogni giorno.',
+    body: 'Credo molto nella crescita delle persone, non solo dal punto di vista tecnico ma anche nella costruzione di fiducia e relazioni solide.\nPromuovo la condivisione continua delle conoscenze e un ambiente di confronto aperto e costruttivo.\nRitengo che questo sia fondamentale per costruire team coesi, valorizzare i colleghi più giovani e favorire una crescita professionale sostenibile.\nNel mio ruolo cerco di essere un punto di riferimento, portando qualità nel lavoro e attenzione al clima del team.',
   },
   {
     title: 'Fuori dal Lavoro',
-    body: 'Fuori dall\'ufficio: famiglia (presto saremo in 4 👶), judo 🥋, gite fuori porta 🥾 e sofferenza settimanale con l\'Inter ⚫🔵.\nIl judo mi ha insegnato equilibrio e disciplina.\nDiventare padre mi ha insegnato che anche i problemi che sembrano insormontabili si gestiscono con calma e metodo.\nL\'Inter mi ha insegnato che c\'è sempre speranza 😄.',
+    body: 'Fuori dall\'ufficio: famiglia (presto saremo in 4 👶), judo 🥋, gite fuori porta 🥾 e sofferenza settimanale con l\'Inter ⚫🔵.\nIl judo mi ha insegnato equilibrio e disciplina.\nDiventare padre mi ha insegnato a gestire anche le situazioni più complesse con calma e metodo.\nL\'Inter… beh che c\'è sempre speranza 😄.',
   },
 ]
 
