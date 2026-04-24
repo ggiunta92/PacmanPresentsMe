@@ -437,4 +437,18 @@ h3 {
 	}
 }
 
-
+/* Hide title bar and scores on touch devices (mobile via iframe scaling) */
+@media (hover: none) and (pointer: coarse) {
+	#panel h1, #canvas-panel-title-pacman, #score, #highscore {
+		display: none !important;
+	}
+	#panel {
+		padding-top: 0;
+	}
+	#board {
+		top: 5px;
+	}
+	#canvas-lifes, #canvas-level-fruits {
+		top: 565px;
+	}
+}
