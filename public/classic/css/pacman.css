@@ -383,6 +383,18 @@ h3 {
 	} 
 
 }
+
+@media screen and (max-width:600px) {
+	#panel, #home {
+		zoom: 70%;
+	}
+	#control-up-big, #control-down-big, #control-left-big, #control-right-big {
+		display: none;
+	}
+	#control {
+		display: block;
+	}
+}
 @media screen and (max-height:640px), screen and (min-device-height : 480px) and (max-device-height : 640px) and (-webkit-device-pixel-ratio: 3) { 
 	#panel, #home { 
 		zoom: 60%;
