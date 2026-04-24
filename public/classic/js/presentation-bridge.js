@@ -62,6 +62,9 @@
     window.PRESENTATION_FREEZE = data.payload && data.payload.frozen === true
 
     if (window.PRESENTATION_FREEZE === true) {
+      if (typeof window.stopAllSound === 'function') {
+        window.stopAllSound()
+      }
       if (typeof window.pauseGame === 'function' && window.PAUSE === false) {
         window.pauseGame()
       }
