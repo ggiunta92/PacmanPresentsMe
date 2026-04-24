@@ -70,6 +70,7 @@ h1 {
 
 .game-frame-wrap {
   overflow: hidden;
+  position: relative;
 }
 
 #classic-frame {
@@ -207,19 +208,13 @@ h2 {
     align-items: start;
   }
 
-  #classic-frame {
-    height: calc(72dvh + 150px);
-    min-height: 680px;
-  }
-
   .modal {
     padding: 0.85rem 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-  #classic-frame {
-    height: 68dvh;
-    min-height: 500px;
+  .modal {
+    padding: 0.75rem 0.8rem;
   }
 }
