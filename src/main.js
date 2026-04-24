@@ -82,18 +82,24 @@ const closeEl = document.querySelector('#modal-close')
 const finalCloseEl = document.querySelector('#final-close')
 const frameWrap = document.querySelector('.game-frame-wrap')
 
-const GAME_WIDTH = 580
+const GAME_WIDTH = 610
 
 const scaleIframe = () => {
   const wrapW = frameWrap.clientWidth
   if (wrapW < GAME_WIDTH) {
     const s = wrapW / GAME_WIDTH
+    frameEl.style.position = 'absolute'
+    frameEl.style.top = '0'
+    frameEl.style.left = '0'
     frameEl.style.transform = `scale(${s})`
     frameEl.style.width = `${GAME_WIDTH}px`
     frameEl.style.transformOrigin = 'top left'
     frameEl.style.height = '780px'
     frameWrap.style.height = `${Math.round(780 * s)}px`
   } else {
+    frameEl.style.position = ''
+    frameEl.style.top = ''
+    frameEl.style.left = ''
     frameEl.style.transform = ''
     frameEl.style.width = '100%'
     frameEl.style.height = ''
