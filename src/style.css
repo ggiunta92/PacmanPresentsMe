@@ -219,7 +219,7 @@ h2 {
 
 @media (max-width: 480px) {
   #classic-frame {
-    height: calc(70dvh + 160px);
-    min-height: 620px;
+    height: 68dvh;
+    min-height: 500px;
   }
 }
