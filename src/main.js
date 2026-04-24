@@ -88,6 +88,26 @@ const finalCloseEl = document.querySelector('#final-close')
 const frameWrap = document.querySelector('.game-frame-wrap')
 
 const GAME_WIDTH = 610
+const MOBILE_CSS_ID = 'mobile-hide-css'
+
+const injectMobileCss = (iframeDoc) => {
+  if (!iframeDoc || iframeDoc.getElementById(MOBILE_CSS_ID)) return
+  const style = iframeDoc.createElement('style')
+  style.id = MOBILE_CSS_ID
+  style.textContent = `
+    #panel h1, #canvas-panel-title-pacman, #score, #highscore { display: none !important; }
+    #panel { padding-top: 0; }
+    #board { top: 5px; }
+    #canvas-lifes, #canvas-level-fruits { top: 565px; }
+  `
+  iframeDoc.head.appendChild(style)
+}
+
+const removeMobileCss = (iframeDoc) => {
+  if (!iframeDoc) return
+  const el = iframeDoc.getElementById(MOBILE_CSS_ID)
+  if (el) el.remove()
+}
 
 const scaleIframe = () => {
   const wrapW = frameWrap.clientWidth
@@ -101,6 +121,7 @@ const scaleIframe = () => {
     frameEl.style.transformOrigin = 'top left'
     frameEl.style.height = '780px'
     frameWrap.style.height = `${Math.round(780 * s)}px`
+    try { injectMobileCss(frameEl.contentDocument) } catch (e) {}
   } else {
     frameEl.style.position = ''
     frameEl.style.top = ''
@@ -109,10 +130,12 @@ const scaleIframe = () => {
     frameEl.style.width = '100%'
     frameEl.style.height = ''
     frameWrap.style.height = ''
+    try { removeMobileCss(frameEl.contentDocument) } catch (e) {}
   }
 }
 
 scaleIframe()
+frameEl.addEventListener('load', scaleIframe)
 window.addEventListener('resize', scaleIframe)
 
 const pauseClassicGame = () => {

@@ -67,6 +67,20 @@ h1 {
   transition: opacity 0.2s;
 }
 
+@media (max-width: 760px) {
+  .powered-by {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+  }
+
+  .topbar > div:first-child {
+    position: relative;
+    width: 100%;
+  }
+}
+
 .powered-by:hover {
   opacity: 1;
   color: #f0f3d8;
