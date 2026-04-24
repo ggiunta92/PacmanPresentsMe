@@ -435,3 +435,16 @@ h3 {
 		top: 347px;
 	}
 }
+
+/* Width-based scaling for narrow viewports (phones in portrait) */
+@media screen and (max-width: 580px) {
+	#panel, #home {
+		zoom: 68%;
+	}
+	#control-up-big, #control-down-big, #control-left-big, #control-right-big {
+		display: inline;
+	}
+	#home .help-button, #panel .help-button, #home .github, #sound, .sound {
+		display: none;
+	}
+}
