@@ -1,0 +1,137 @@
+#home h1 { 
+	text-align: center;
+	font-size: 78px;
+}
+.present-me-line {
+	position: absolute;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+	top: 114px;
+	text-align: center;
+	font-size: 24px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #fff200;
+}
+#home h3 { 
+	position: absolute;
+	margin: auto;
+	left: 0px;
+	right: 0px;
+	bottom: 20px;
+	text-align: center;
+}
+#home h3 em { 
+	font-size: inherit;
+	font-style: inherit;
+	color: #fff200;
+}
+#canvas-home-title-pacman { 
+	background-color: #000;
+	position: absolute;
+	top: 10px;
+	left: 182px;
+	height: 100px;
+	width: 118px;
+}
+#canvas-panel-title-pacman { 
+	background-color: #000;
+	position: absolute;
+	top: 6px;
+	left: 47px;
+	height: 32px;
+	width: 38px;
+}
+
+#presentation { 
+	position: absolute;
+	margin: auto;
+	padding: 0px;
+	left: 0px;
+	right: 0px;
+	top: 190px;
+	width: 500px;
+	height: 250px;
+}
+
+#profile-card {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 10px;
+	width: 330px;
+	margin: auto;
+	text-align: center;
+}
+
+#profile-photo {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	border: 3px solid #fff200;
+	object-fit: cover;
+	background: #081a2f;
+}
+
+#profile-name,
+#profile-team,
+#profile-role {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+#profile-name {
+	margin-top: 18px;
+	font-size: 28px;
+	color: #fff;
+}
+
+#profile-team {
+	margin-top: 8px;
+	font-size: 26px;
+	color: #4adecb;
+}
+
+#profile-role {
+	margin-top: 8px;
+	font-size: 30px;
+	color: #f99c00;
+}
+
+.panel-line {
+	top: 40px;
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+
+#trailer { 
+	position: absolute;
+	margin: auto;
+	padding: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 100px;
+	width: 500px;
+	height: 50px;
+}
+
+@media screen and (min-height:1200px), screen and (min-device-height : 1200px) { 
+
+}
+
+@media screen and (max-width:1024px), screen and (min-device-width : 768px) and (max-device-width : 1024px) { 
+
+	
+	#canvas-panel-title-pacman { 
+		left: 49px;
+		width: 42px;
+	}
+}
+
+@media screen and (max-height:640px), screen and (min-device-height : 480px) and (max-device-height : 640px) and (-webkit-device-pixel-ratio: 3) { 
+
+}
+@media screen and (max-height:480px), screen and (min-device-height : 320px) and (max-device-height : 480px) { 
+
+}
