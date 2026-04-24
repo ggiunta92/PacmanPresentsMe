@@ -95,6 +95,7 @@ span.combo, span.fruits {
 
 #panel, #home { 
 	width: 550px;
+	max-width: 100%;
 	height: 690px;
 	margin: auto;
 	margin-top: 10px;
@@ -106,6 +107,7 @@ span.combo, span.fruits {
 }			
 #board, #canvas-board, #canvas-paths, #canvas-fruits, #canvas-pacman, #canvas-bubbles, #canvas-ghost-blinky, #canvas-ghost-pinky, #canvas-ghost-inky, #canvas-ghost-clyde { 
 	width: 550px;
+	max-width: 100%;
 	height: 550px;
 	position: absolute;
 }
@@ -205,7 +207,7 @@ span.combo, span.fruits {
 	background-image: url('../img/move-up-big.png');
 }
 #control-down-big { 
-	bottom: -120px;
+	bottom: -150px;
 	left: 0px;
 	right: 0px;
 	width: 125px;
@@ -214,14 +216,14 @@ span.combo, span.fruits {
 }
 #control-left-big { 
 	left: 80px;
-	bottom: -90px;
+	bottom: -120px;
 	width: 125px;
 	height: 175px;
 	background-image: url('../img/move-left-big.png');
 }
 #control-right-big { 
 	right: 80px;
-	bottom: -90px;
+	bottom: -120px;
 	width: 125px;
 	height: 175px;
 	background-image: url('../img/move-right-big.png');
