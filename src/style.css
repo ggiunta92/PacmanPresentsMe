@@ -208,8 +208,8 @@ h2 {
   }
 
   #classic-frame {
-    height: 72dvh;
-    min-height: 560px;
+    height: calc(72dvh + 150px);
+    min-height: 680px;
   }
 
   .modal {

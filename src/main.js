@@ -72,6 +72,7 @@ document.querySelector('#app').innerHTML = `
 </div>
 `
 
+const countEl = document.querySelector('#count')
 const frameEl = document.querySelector('#classic-frame')
 const overlayEl = document.querySelector('#overlay')
 const finalOverlayEl = document.querySelector('#final-overlay')
@@ -191,6 +192,7 @@ const enqueueUnlock = () => {
   if (pointIndex >= presentationPoints.length) return
   state.unlocked.push(pointIndex)
   state.queue.push(pointIndex)
+  countEl.textContent = String(state.unlocked.length)
   showNextModal()
 }
 
