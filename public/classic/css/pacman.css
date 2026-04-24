@@ -105,6 +105,7 @@ span.combo, span.fruits {
 	position: absolute;
 	padding: 5px 10px 10px 10px;
 	background-color: #000;
+	overflow: hidden;
 }			
 #board, #canvas-board, #canvas-paths, #canvas-fruits, #canvas-pacman, #canvas-bubbles, #canvas-ghost-blinky, #canvas-ghost-pinky, #canvas-ghost-inky, #canvas-ghost-clyde { 
 	width: 550px;

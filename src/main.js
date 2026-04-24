@@ -45,7 +45,7 @@ document.querySelector('#app').innerHTML = `
 
   <section class="layout">
     <div class="game-frame-wrap">
-      <iframe id="classic-frame" src="classic/index.html" title="Classic Pacman"></iframe>
+      <iframe id="classic-frame" src="classic/index.html" title="Classic Pacman" scrolling="no"></iframe>
     </div>
 
   </section>
