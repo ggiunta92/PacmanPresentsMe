@@ -100,6 +100,50 @@ h1 {
   padding: 0.35rem 0.75rem;
 }
 
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.assist-trigger {
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.assist-trigger:hover {
+  border-color: rgba(255, 224, 80, 0.5);
+}
+
+.assist-trigger.assist-active {
+  border-color: rgba(255, 224, 80, 0.9);
+  background: rgba(255, 224, 80, 0.2);
+  color: #fff5c5;
+}
+
+.assist-next {
+  border: 1px solid rgba(255, 224, 80, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 224, 80, 0.16);
+  color: #fff5c5;
+  padding: 0.35rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.assist-next:hover {
+  background: rgba(255, 224, 80, 0.3);
+}
+
+.assist-next.hidden {
+  display: none;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -241,6 +285,11 @@ h2 {
   .topbar {
     flex-direction: column;
     align-items: start;
+  }
+
+  .top-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .modal {

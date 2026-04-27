@@ -28,6 +28,9 @@ const state = {
   queue: [],
   modalOpen: false,
   completed: false,
+  assistMode: false,
+  assistPressTimer: null,
+  assistCooldownUntil: 0,
   typingTimer: null,
   isTyping: false,
   typingText: '',
@@ -45,7 +48,10 @@ document.querySelector('#app').innerHTML = `
         GitHub Copilot
       </a>
     </div>
-    <div class="status">Punti sbloccati: <span id="count">0</span>/5</div>
+    <div class="top-actions">
+      <div id="assist-status" class="status assist-trigger" role="button" tabindex="0" title="Tieni premuto per attivare l'assistenza">Punti sbloccati: <span id="count">0</span>/5</div>
+      <button id="assist-next" class="assist-next hidden" type="button">Sblocca punto successivo</button>
+    </div>
   </header>
 
   <section class="layout">
@@ -86,9 +92,13 @@ const bodyEl = document.querySelector('#modal-body')
 const closeEl = document.querySelector('#modal-close')
 const finalCloseEl = document.querySelector('#final-close')
 const frameWrap = document.querySelector('.game-frame-wrap')
+const assistStatusEl = document.querySelector('#assist-status')
+const assistNextEl = document.querySelector('#assist-next')
 
 const GAME_WIDTH = 610
 const MOBILE_CSS_ID = 'mobile-hide-css'
+const ASSIST_LONG_PRESS_MS = 1200
+const ASSIST_COOLDOWN_MS = 600
 
 const injectMobileCss = (iframeDoc) => {
   if (!iframeDoc || iframeDoc.getElementById(MOBILE_CSS_ID)) return
@@ -210,6 +220,53 @@ const showNextModal = () => {
   overlayEl.classList.remove('hidden')
 }
 
+const setAssistMode = (enabled) => {
+  state.assistMode = enabled
+  assistNextEl.classList.toggle('hidden', !enabled)
+  assistStatusEl.classList.toggle('assist-active', enabled)
+}
+
+const requestAssistModeActivation = () => {
+  if (state.assistMode || state.completed) return
+
+  const confirmed = window.confirm(
+    'Attivare la modalita assistenza? Potrai sbloccare manualmente i punti uno alla volta dal pulsante dedicato.',
+  )
+  if (!confirmed) return
+
+  setAssistMode(true)
+}
+
+const startAssistLongPress = (event) => {
+  if (state.assistMode || state.completed) return
+  event.preventDefault()
+
+  if (state.assistPressTimer) {
+    clearTimeout(state.assistPressTimer)
+  }
+
+  state.assistPressTimer = setTimeout(() => {
+    state.assistPressTimer = null
+    requestAssistModeActivation()
+  }, ASSIST_LONG_PRESS_MS)
+}
+
+const cancelAssistLongPress = () => {
+  if (!state.assistPressTimer) return
+  clearTimeout(state.assistPressTimer)
+  state.assistPressTimer = null
+}
+
+const manualUnlockNextPoint = () => {
+  if (!state.assistMode || state.modalOpen || state.completed) return
+
+  const now = Date.now()
+  if (now < state.assistCooldownUntil) return
+  state.assistCooldownUntil = now + ASSIST_COOLDOWN_MS
+
+  enqueueUnlock()
+}
+
 const finishPresentation = () => {
   state.completed = true
   state.modalOpen = true
@@ -220,13 +277,16 @@ const finishPresentation = () => {
 
 const resetPresentation = () => {
   stopTypingAnimation()
+  cancelAssistLongPress()
   state.unlocked = []
   state.queue = []
   state.modalOpen = false
   state.completed = false
+  state.assistCooldownUntil = 0
   state.typingText = ''
   state.typingIndex = 0
   state.isTyping = false
+  setAssistMode(false)
   overlayEl.classList.add('hidden')
   finalOverlayEl.classList.add('hidden')
 
@@ -312,3 +372,15 @@ closeEl.addEventListener('click', () => {
 })
 
 finalCloseEl.addEventListener('click', resetPresentation)
+
+assistStatusEl.addEventListener('pointerdown', startAssistLongPress)
+assistStatusEl.addEventListener('pointerup', cancelAssistLongPress)
+assistStatusEl.addEventListener('pointercancel', cancelAssistLongPress)
+assistStatusEl.addEventListener('pointerleave', cancelAssistLongPress)
+assistStatusEl.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return
+  event.preventDefault()
+  requestAssistModeActivation()
+})
+
+assistNextEl.addEventListener('click', manualUnlockNextPoint)
