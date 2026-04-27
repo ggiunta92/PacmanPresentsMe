@@ -96,6 +96,7 @@ const assistStatusEl = document.querySelector('#assist-status')
 const assistNextEl = document.querySelector('#assist-next')
 
 const GAME_WIDTH = 610
+const GAME_HEIGHT = 780
 const MOBILE_CSS_ID = 'mobile-hide-css'
 const ASSIST_LONG_PRESS_MS = 1200
 const ASSIST_COOLDOWN_MS = 600
@@ -121,16 +122,24 @@ const removeMobileCss = (iframeDoc) => {
 
 const scaleIframe = () => {
   const wrapW = frameWrap.clientWidth
-  if (wrapW < GAME_WIDTH) {
-    const s = wrapW / GAME_WIDTH
+  // Available height = viewport minus topbar (measured dynamically)
+  const topbar = document.querySelector('.topbar')
+  const topbarH = topbar ? topbar.getBoundingClientRect().height + 32 : 100
+  const availH = window.innerHeight - topbarH
+
+  const scaleByW = wrapW < GAME_WIDTH ? wrapW / GAME_WIDTH : 1
+  const scaleByH = availH < GAME_HEIGHT ? availH / GAME_HEIGHT : 1
+  const s = Math.min(scaleByW, scaleByH)
+
+  if (s < 1) {
     frameEl.style.position = 'absolute'
     frameEl.style.top = '0'
     frameEl.style.left = '0'
     frameEl.style.transform = `scale(${s})`
     frameEl.style.width = `${GAME_WIDTH}px`
     frameEl.style.transformOrigin = 'top left'
-    frameEl.style.height = '780px'
-    frameWrap.style.height = `${Math.round(780 * s)}px`
+    frameEl.style.height = `${GAME_HEIGHT}px`
+    frameWrap.style.height = `${Math.round(GAME_HEIGHT * s)}px`
     try { injectMobileCss(frameEl.contentDocument) } catch (e) {}
   } else {
     frameEl.style.position = ''
