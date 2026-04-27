@@ -231,10 +231,6 @@ h2 {
   .layout {
     grid-template-columns: 1fr;
   }
-
-  #classic-frame {
-    height: 720px;
-  }
 }
 
 @media (max-width: 760px) {
