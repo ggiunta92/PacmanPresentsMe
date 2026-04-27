@@ -228,12 +228,6 @@ const setAssistMode = (enabled) => {
 
 const requestAssistModeActivation = () => {
   if (state.assistMode || state.completed) return
-
-  const confirmed = window.confirm(
-    'Attivare la modalita assistenza? Potrai sbloccare manualmente i punti uno alla volta dal pulsante dedicato.',
-  )
-  if (!confirmed) return
-
   setAssistMode(true)
 }
 
