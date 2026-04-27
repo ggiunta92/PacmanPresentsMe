@@ -57,6 +57,9 @@
 			$(document).ready(function() { 
 				//$.mobile.loading().hide();
 				loadAllSound();
+				GROUP_SOUND.mute();
+				$(".sound").attr("data-sound", "off");
+				$(".sound").find("img").attr("src", "img/sound-off.png");
 				
 				HELP_TIMER = setInterval('blinkHelp()', HELP_DELAY);
 				
