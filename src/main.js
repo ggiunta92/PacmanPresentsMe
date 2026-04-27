@@ -106,6 +106,7 @@ const injectGameCss = (iframeDoc) => {
   style.id = GAME_CSS_ID
   style.textContent = `
     #panel h1, #canvas-panel-title-pacman, #score, #highscore { display: none !important; }
+    #panel .help-button, #panel .sound, #sound { display: none !important; }
     #panel { padding-top: 0; }
     #board { top: 5px; }
     #canvas-lifes, #canvas-level-fruits { top: 565px; }
