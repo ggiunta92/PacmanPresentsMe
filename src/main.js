@@ -371,6 +371,9 @@ assistStatusEl.addEventListener('pointerdown', startAssistLongPress)
 assistStatusEl.addEventListener('pointerup', cancelAssistLongPress)
 assistStatusEl.addEventListener('pointercancel', cancelAssistLongPress)
 assistStatusEl.addEventListener('pointerleave', cancelAssistLongPress)
+assistStatusEl.addEventListener('touchstart', startAssistLongPress, { passive: false })
+assistStatusEl.addEventListener('touchend', cancelAssistLongPress)
+assistStatusEl.addEventListener('touchcancel', cancelAssistLongPress)
 assistStatusEl.addEventListener('keydown', (event) => {
   if (event.key !== 'Enter' && event.key !== ' ') return
   event.preventDefault()

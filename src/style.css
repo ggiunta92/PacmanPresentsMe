@@ -111,6 +111,7 @@ h1 {
 .assist-trigger {
   cursor: pointer;
   user-select: none;
+  touch-action: none;
   transition: border-color 0.2s, background-color 0.2s;
 }
 
